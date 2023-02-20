@@ -8,6 +8,64 @@ import (
 	"testing"
 )
 
+func BenchmarkTable(b *testing.B) {
+	benchmarks := []struct {
+		name    string
+		request string
+	}{
+		{
+			name:    "Marlin",
+			request: "Marlin",
+		},
+		{
+			name:    "Purnama",
+			request: "Purnama",
+		},
+		{
+			name:    "Marlin Purnama Sari",
+			request: "Marlin Purnama Sari",
+		},
+	}
+
+	for _, benchmark := range benchmarks {
+		b.Run(benchmark.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				HelloWorld(benchmark.request)
+			}
+		})
+	}
+}
+
+func BenchmarkSub(b *testing.B) {
+	b.Run("Marlin", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Marlin")
+		}
+	})
+
+	b.Run("Purnama", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Purnama")
+		}
+	})
+
+	//go test -v -run=NotMathUnitTest -bench=BenchmarkSub u/ menjalankan BenchmarkSub
+	//go test -v -bench=BenchmarkSub/Marlin u/ menjalankan hanya sub benchmark tertentu
+}
+
+func BenchmarkHelloWorld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Marlin")
+	}
+}
+
+func BenchmarkHelloWorldPurnama(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Purnama")
+	}
+	//go test -v -run=NotMathUnitTest -bench=BenchmarkHelloWorldPurnama
+}
+
 func TestTableHelloWorld(t *testing.T) { //Table Test, lebih efisien dibandingkan metode testing-testing sebelumnya
 	tests := []struct { //slice struct
 		name     string
