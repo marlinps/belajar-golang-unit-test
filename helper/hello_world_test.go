@@ -153,7 +153,7 @@ func TestHelloWorldMarlin(t *testing.T) {
 
 	if result != "Hello Marlin" {
 		//error
-		// t.Fail() //tetap mengeksekusi kode dibawahnya
+		// t.Fail() //jika gagal, kode dibawahnya tetap mengeksekusi kode dibawahnya
 		t.Error("Result must be 'Hello Marlin'")
 	}
 	fmt.Println("TestHelloWorldMarlin Done")
@@ -164,7 +164,7 @@ func TestHelloWorldPurnama(t *testing.T) {
 
 	if result != "Hello Purnama" {
 		//error
-		// t.FailNow() //jika fail, kode dibawahnya tidak lagi dieksekusi langsung berhenti
+		// t.FailNow() //jika gagal maka kode dibawahnya tidak lagi dieksekusi langsung berhenti
 		t.Fatal("Result must be 'Hello Purnama'")
 	}
 	fmt.Println("TestHelloWorldPurnama Done")
