@@ -110,11 +110,11 @@ func TestTableHelloWorld(t *testing.T) { //Table Test, lebih efisien dibandingka
 func TestSubTest(t *testing.T) { //SubTest
 	t.Run("Marlin", func(t *testing.T) {
 		result := HelloWorld("Marlin")
-		require.Equal(t, "Hello Marlin", result, "Result mus be 'Hello Marlin'")
+		require.Equal(t, "Hello Marlin", result, "Result must be 'Hello Marlin'")
 	})
 	t.Run("Purnama", func(t *testing.T) {
 		result := HelloWorld("Purnama")
-		require.Equal(t, "Hello Purnama", result, "Result mus be 'Hello Purnama'")
+		require.Equal(t, "Hello Purnama", result, "Result must be 'Hello Purnama'")
 	})
 
 	//untuk menjalankan test di subtest tertentu perintah contoh go test -run TestSubTest/Marlin

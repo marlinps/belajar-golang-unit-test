@@ -1,5 +1,7 @@
 package service
 
+//layer service sebagai businees logic
+
 import (
 	"belajar-golang-unit-test/entity"
 	"belajar-golang-unit-test/repository"
